@@ -34,3 +34,4 @@ tornado==4.5.*
 seaborn==0.8.*
 wordcloud==1.4.*
 ipykernel==4.8.*
+ipywidgets==7.2.*

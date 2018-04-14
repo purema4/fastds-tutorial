@@ -49,9 +49,10 @@ RUN yum install -y --setopt=tsflags=nodocs blas atlas gcc-gfortran swig gcc-c++ 
 # Install python libraries
 COPY requirements.txt /opt/spark/
 
-
 # RUN # pip install --no-cache-dir pipenv && \
 RUN  pip install --no-cache-dir -r ${SPARK_HOME}/requirements.txt && \
+     # To get sliders and others widgets
+     jupyter nbextension enable --py --sys-prefix widgetsnbextension && \
      jupyter toree install --spark_home=${SPARK_HOME} --interpreters=Scala,PySpark,SQL
 
 # As suggested for BigDL tutorials
