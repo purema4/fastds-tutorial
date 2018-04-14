@@ -18,6 +18,9 @@ chmod 0400 <Key_name>
 # Start shell on docker image :
 docker run -p9000:9000 -p 8088:8088 -v $PWD/dataset:/work-dir/data -ti agileops/fastds-tutorial bash
 
+# To get yarn running
+docker run -p9000:9000 -p 8088:8088 -v $PWD/dataset:/work-dir/data -ti agileops/fastds-tutorial bootstrap.sh
+
 # Provision hdfs using local data
 hdfs dfs -copyFromLocal data/ hdfs://localhost:9000/user/root/data
 
