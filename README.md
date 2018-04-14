@@ -4,6 +4,11 @@ This docker projet boostrap standalone and featurefull spark environment to deve
 
 ## Quickstart
 
+When you create your machine, be sure you got right permission on your ssh private key.
+
+```
+chmod 0400 <Key_name>
+```
 
 ### To test hadoop:
 
@@ -11,7 +16,7 @@ This docker projet boostrap standalone and featurefull spark environment to deve
 
 ```
 # Start shell on docker image :
-docker run -p9000:9000 -p 8088:8088 -v dataset:/work-dir/data -ti agileops/fastds-tutorial bash
+docker run -p9000:9000 -p 8088:8088 -v $PWD/dataset:/work-dir/data -ti agileops/fastds-tutorial bash
 
 # Provision hdfs using local data
 hdfs dfs -copyFromLocal data/ hdfs://localhost:9000/user/root/data
@@ -30,7 +35,7 @@ hdfs dfs -copyFromLocal data/ hdfs://localhost:9000/user/root/data
 ```
 
 
-Note : For compatibilities/accessibilities/simplicites against hardware and env. requirements, tensoflow and pytorch are configured without AVX and Cuda.
+Note : For compatibilities/accessibilities/simplicites against hardware and env. requirements, tensorflow and pytorch are configured without AVX and Cuda.
 
 
 
