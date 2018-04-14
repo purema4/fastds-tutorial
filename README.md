@@ -11,7 +11,10 @@ This docker projet boostrap standalone and featurefull spark environment to deve
 
 ```
 # Start shell on docker image :
-docker run -v ./data:data -ti agileops/fastds-tutorial bash
+docker run -p9000:9000 -p 8088:8088 -v ./data:data -ti agileops/fastds-tutorial bash
+
+# Provision hdfs using local data
+hdfs dfs -copyFromLocal data/ hdfs://localhost:9000/user/root/data
 
 # Start map/reduce job
  hadoop jar $HADOOP_HOME/hadoop-streaming.jar -input data -output out -mapper /bin/cat -reducer /bin/wc
