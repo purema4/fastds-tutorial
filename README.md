@@ -17,7 +17,8 @@ docker run -p9000:9000 -p 8088:8088 -v ./data:data -ti agileops/fastds-tutorial 
 hdfs dfs -copyFromLocal data/ hdfs://localhost:9000/user/root/data
 
 # Start map/reduce job
- hadoop jar $HADOOP_HOME/hadoop-streaming.jar -input data -output out -mapper /bin/cat -reducer /bin/wc
+ ~~hadoop jar $HADOOP_HOME/hadoop-streaming.jar -input data -output out -mapper /bin/cat -reducer /bin/wc~~
+ yarn jar $HADOOP_HOME/hadoop-streaming.jar  -input data -output out -mapper /bin/cat -reducer /bin/wc
 ```
 
 
