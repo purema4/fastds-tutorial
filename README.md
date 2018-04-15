@@ -10,6 +10,8 @@ When you create your machine, be sure you got right permission on your ssh priva
 chmod 0400 <Key_name>
 ```
 
+Note : It's not necessary on Windows since Posix file permissions is emulated.
+
 ### To test hadoop:
 
 ```
