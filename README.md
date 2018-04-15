@@ -28,7 +28,7 @@ docker run --rm  -d -p9000:9000 -p 8088:8088 -v $PWD/dataset:/work-dir/data -ti 
 docker ps
 
 # Enter in your docker image
-docker exec -ti <docker_container_id>
+docker exec -ti <docker_container_id> bash
 
 # Before uploading our dataset to hbase, create parent directory
 hdfs dfs -mkdir -p hdfs://localhost:9000/user/root
