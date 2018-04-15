@@ -31,7 +31,7 @@ docker images
 docker exec -ti <docker_container_id>
 
 # Before uploading our dataset to hbase, create parent directory
-hdfs dfs -mkdir -p hdfs://localhost:9000/user/root/data
+hdfs dfs -mkdir -p hdfs://localhost:9000/user/root
 
 # Provision hdfs using local data
 hdfs dfs -copyFromLocal data/ hdfs://localhost:9000/user/root/data
