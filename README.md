@@ -25,7 +25,7 @@ docker pull agileops/fastds-tutorial:latest
 docker run --rm  -d -p9000:9000 -p 8088:8088 -v $PWD/dataset:/work-dir/data -ti agileops/fastds-tutorial bootstrap.sh
 
 # List your active Docker containers. And, find the container id of your latest one.
-docker images
+docker ps
 
 # Enter in your docker image
 docker exec -ti <docker_container_id>
