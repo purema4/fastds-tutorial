@@ -19,7 +19,7 @@ Note : It's not necessary on Windows since Posix file permissions is emulated.
 ./prepare.sh`
 
 # Download Docker image.  Be sure you actually use the latest version.
-docker pull
+docker pull agileops/fastds-tutorial:lastest
 
 # To get yarn running
 docker run --rm  -d -p9000:9000 -p 8088:8088 -v $PWD/dataset:/work-dir/data -ti agileops/fastds-tutorial bootstrap.sh
