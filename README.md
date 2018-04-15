@@ -37,7 +37,7 @@ hdfs dfs -mkdir -p hdfs://localhost:9000/user/root
 hdfs dfs -copyFromLocal data/ hdfs://localhost:9000/user/root/data
 
 # Start map/reduce job
-yarn jar $HADOOP_HOME/hadoop-streaming.jar -f -input data/tpsgc-pwgsc_co-ch_tous-all.csv -output out -mapper /bin/cat -reducer /bin/wc
+yarn jar $HADOOP_HOME/hadoop-streaming.jar -input data/tpsgc-pwgsc_co-ch_tous-all.csv -output out -mapper /bin/cat -reducer /bin/wc
 ```
 
 Note : For compatibilities/accessibilities/simplicites against hardware and env. requirements, tensorflow and pytorch are configured without AVX and Cuda.
