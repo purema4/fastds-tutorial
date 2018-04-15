@@ -31,10 +31,10 @@ docker ps
 docker exec -ti <docker_container_id> bash
 
 # Before uploading our dataset to hbase, create parent directory
-hdfs dfs -mkdir -p hdfs://localhost:9000/user/root
+hadoop fs -mkdir -p hdfs://localhost:9000/user/root
 
-# Provision hdfs using local data
-hdfs dfs -copyFromLocal data/ hdfs://localhost:9000/user/root/data
+# Provision hdfs using local data. To learn more commands
+hadoop fs -copyFromLocal data/ hdfs://localhost:9000/user/root/data
 
 # Start map/reduce job
 yarn jar $HADOOP_HOME/hadoop-streaming.jar -input data/tpsgc-pwgsc_co-ch_tous-all.csv -output out -mapper /bin/cat -reducer /bin/wc
