@@ -12,35 +12,30 @@ chmod 0400 <Key_name>
 
 ### To test hadoop:
 
-0. Get dataset first : `./prepare.sh`
-
 ```
-# Start shell on docker image :
-docker run -p9000:9000 -p 8088:8088 -v $PWD/dataset:/work-dir/data -ti agileops/fastds-tutorial bash
+# Get dataset first :
+./prepare.sh`
+
+# Download Docker image.  Be sure you actually use the latest version.
+docker pull
 
 # To get yarn running
-docker run -p9000:9000 -p 8088:8088 -v $PWD/dataset:/work-dir/data -ti agileops/fastds-tutorial bootstrap.sh
+docker run --rm -t docker-image  -d -p9000:9000 -p 8088:8088 -v $PWD/dataset:/work-dir/data -ti agileops/fastds-tutorial boostrap.sh
+
+# List your active Docker containers. And, find the container id of your latest one.
+docker images
+
+# Enter in your docker image
+docker exec -ti <docker_container_id>
 
 # Provision hdfs using local data
 hdfs dfs -copyFromLocal data/ hdfs://localhost:9000/user/root/data
 
 # Start map/reduce job
- ~~hadoop jar $HADOOP_HOME/hadoop-streaming.jar -input data -output out -mapper /bin/cat -reducer /bin/wc~~
- yarn jar $HADOOP_HOME/hadoop-streaming.jar  -input data -output out -mapper /bin/cat -reducer /bin/wc
+yarn jar $HADOOP_HOME/hadoop-streaming.jar  -input data -output out -mapper /bin/cat -reducer /bin/wc
 ```
-
-
-### To run jupyter:
-
-```
- CONTAINER_ID=$(docker run -d -ti -v data/data -p 8888:8888 agileops/fastds-tutorial)
- docker logs $CONTAINER_ID -f
-```
-
 
 Note : For compatibilities/accessibilities/simplicites against hardware and env. requirements, tensorflow and pytorch are configured without AVX and Cuda.
-
-
 
 ## Suggested datasets
 
